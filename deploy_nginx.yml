@@ -2,8 +2,6 @@
 - name: Deploy Nginx Pod
   hosts: localhost
   become: yes
-  environment:
-    KUBECONFIG: ~jenkins/.kube/
   tasks:
     - name: install pre-requisites
       pip:
