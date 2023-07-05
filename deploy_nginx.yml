@@ -9,7 +9,7 @@
         state: present  
     - name: Get Kubernetes cluster info
       kubernetes.core.k8s_info:
-        kubeconfig: /home/rihab/.kube/config
+        kubeconfig: "/home/rihab/.kube/config"
     - name: Create a pod
       k8s:
         state: present
