@@ -4,13 +4,6 @@
   collections:
     - kubernetes.core
   tasks:
-    - name: Install kubernetes library
-      pip:
-        name: kubernetes
-        state: present  
-    - name: Get Kubernetes cluster info
-      kubernetes.core.k8s_info:
-        kubeconfig: /home/config
     - name: Create a pod
       k8s:
         state: present
