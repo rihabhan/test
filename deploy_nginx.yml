@@ -2,6 +2,8 @@
 - name: Deploy Nginx Pod
   hosts: localhost
   become: yes
+  environment:
+    KUBECONFIG: /home/rihab/.kube/config
   tasks:
     - name: install pre-requisites
       pip:
@@ -9,6 +11,8 @@
           - openshift
           - pyyaml
           - kubernetes
+        executable: pip3
+
     - name: Create Nginx Pod
       kubernetes.core.k8s:
         api_version: v1
@@ -26,8 +30,7 @@
         state: present
         wait: yes
         wait_timeout: 300
-      environment:
-        KUBECONFIG: /home/rihab/.kube/config
+
 
 
 
