@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
     - name: Create Nginx Pod
-      command: ansible-playbook --version
+      command: /usr/local/bin/kubectl run myningx --image=nginx
