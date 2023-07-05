@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
     - name: Create Nginx Pod
-      command: /usr/local/bin/kubectl run nginxpoddd --image=nginx --kubeconfig=/home/rihab/.kube/config
+      command: /usr/local/bin/kubectl run nginxpoddd --image=nginx 
