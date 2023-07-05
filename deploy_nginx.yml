@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Create Nginx Pod
-      community.kubernetes.k8s:
+      kubernetes.core.k8s:
         api_version: v1
         kind: Pod
         namespace: default
