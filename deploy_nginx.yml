@@ -1,20 +1,16 @@
 ---
-- hosts: localhost
-  become_user: root
-  collections:
-    - kubernetes.core
+- name: Deploy Nginx on localhost
+  hosts: localhost
+  become: true
   tasks:
-    - name: Create a pod
-      k8s:
-        kubeconfig: "/home/rihab/.kube/config"
+    - name: Install Nginx
+      apt:
+        name: nginx
         state: present
-        definition:
-          apiVersion: v1
-          kind: Pod
-          metadata:
-            name: "nginx-pod"
-            namespace: default
-          spec:
-            containers:
-              - name: nginx-container
-                image: nginx
+
+    - name: Start Nginx service
+      service:
+        name: nginx
+        state: started
+        enabled: true
+
