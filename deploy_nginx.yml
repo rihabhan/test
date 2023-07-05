@@ -1,6 +1,7 @@
 ---
 - name: Deploy Nginx on localhost
   hosts: localhost
+  become: yes
   tasks:
     - name: Install Nginx
       apt:
