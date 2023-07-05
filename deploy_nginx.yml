@@ -3,7 +3,7 @@
   hosts: localhost
   become: yes
   environment:
-    KUBECONFIG: /home/rihab/.kube/config
+    KUBECONFIG: jenkins/.kube/config
   tasks:
     - name: install pre-requisites
       pip:
