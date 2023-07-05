@@ -2,6 +2,11 @@
   collections:
     - kubernetes.core
   tasks:
+    tasks:
+    - name: Install kubernetes library
+      pip:
+        name: kubernetes
+        state: present
     - name: Create a pod
       k8s:
         state: present
