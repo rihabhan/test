@@ -1,7 +1,20 @@
 ---
-- name: Deploy Nginx Pod
-  hosts: localhost
-  gather_facts: false
+- hosts: localhost
+  collections:
+    - kubernetes.core
   tasks:
-    - name: Create Nginx Pod
-      command: /usr/local/bin/kubectl run nginxpoddd --image=nginx 
+  - name: Create a pod
+    k8s:
+      state: present
+      definition:
+        apiVersion: v1
+        kind: Pod
+        metadata:
+          name: "utilitypod-2"
+          namespace: default
+          labels:
+            app: galaxy
+        spec:
+          containers:
+          - name: utilitypod
+            image: busybox
