@@ -1,23 +1,22 @@
 ---
-- name: Deploy Nginx Pod
-  hosts: localhost
+- hosts: localhost
   become: yes
+  collections:
+    - kubernetes.core
   tasks:
-    - name: Create Nginx Pod
-      k8s_raw:
-        api_version: v1
-        kind: Pod
-        namespace: default
+    - name: Create a pod
+      k8s:
+        state: present
         definition:
+          apiVersion: v1
+          kind: Pod
           metadata:
-            name: nginx-pod
+            name: "nginx-pod"
+            namespace: default
           spec:
             containers:
-              - name: nginx
+              - name: nginx-container
                 image: nginx
-                ports:
-                  - containerPort: 80
-        state: present
-        apply: yes
+
 
 
