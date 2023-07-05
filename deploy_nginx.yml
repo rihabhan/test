@@ -7,9 +7,13 @@
       pip:
         name: kubernetes
         state: present  
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: /home/config
+        dest: /home/confiig
     - name: Get Kubernetes cluster info
       kubernetes.core.k8s_info:
-        kubeconfig: "/home/config"
+        kubeconfig: /home/confiig
     - name: Create a pod
       k8s:
         state: present
