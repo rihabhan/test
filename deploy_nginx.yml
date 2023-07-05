@@ -1,12 +1,12 @@
+---
 - hosts: localhost
   collections:
     - kubernetes.core
   tasks:
-    tasks:
     - name: Install kubernetes library
       pip:
         name: kubernetes
-        state: present
+        state: present  
     - name: Create a pod
       k8s:
         state: present
@@ -14,7 +14,7 @@
           apiVersion: v1
           kind: Pod
           metadata:
-            name: "nginx-pod2"
+            name: "nginx-pod"
             namespace: default
           spec:
             containers:
