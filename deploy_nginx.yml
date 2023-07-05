@@ -1,27 +1,15 @@
+---
 - hosts: localhost
   collections:
     - kubernetes.core
   tasks:
-    - name: Install Kubernetes library
+    - name: Install kubernetes library
       pip:
         name: kubernetes
-        state: present
-
-    - name: Set KUBECONFIG environment variable
-      set_fact:
-        kubeconfig_path: "/home/rihab/.kube/config"
-      delegate_to: localhost
-      run_once: true
-
+        state: present  
     - name: Get Kubernetes cluster info
       kubernetes.core.k8s_info:
-        kubeconfig: "{{ kubeconfig_path }}"
-      register: cluster_info
-
-    - name: Print Kubernetes cluster info
-      debug:
-        var: cluster_info
-
+        kubeconfig: "/home/rihab/.kube/config"
     - name: Create a pod
       k8s:
         state: present
