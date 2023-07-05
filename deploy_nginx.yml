@@ -6,6 +6,7 @@
   tasks:
     - name: Create a pod
       k8s:
+        kubeconfig: "/home/rihab/.kybe/config"
         state: present
         definition:
           apiVersion: v1
