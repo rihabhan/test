@@ -1,20 +1,18 @@
----
 - hosts: localhost
   collections:
     - kubernetes.core
   tasks:
-  - name: Create a pod
-    k8s:
-      state: present
-      definition:
-        apiVersion: v1
-        kind: Pod
-        metadata:
-          name: "utilitypod-2"
-          namespace: default
-          labels:
-            app: galaxy
-        spec:
-          containers:
-          - name: utilitypod
-            image: busybox
+    - name: Create a pod
+      k8s:
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: "nginx-pod2"
+            namespace: default
+          spec:
+            containers:
+              - name: nginx-container
+                image: nginx
+
