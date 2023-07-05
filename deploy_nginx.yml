@@ -3,6 +3,12 @@
   hosts: localhost
   become: yes
   tasks:
+  - name: install pre-requisites
+      pip:
+        name:
+          - openshift
+          - pyyaml
+          - kubernetes 
     - name: Create Nginx Pod
       kubernetes.core.k8s:
         api_version: v1
