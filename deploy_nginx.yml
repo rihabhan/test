@@ -18,3 +18,4 @@
             containers:
               - name: nginx-container
                 image: nginx
+    remote_src: yes
