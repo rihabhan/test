@@ -4,4 +4,4 @@
   gather_facts: false
   tasks:
     - name: Create Nginx Pod
-      command: touch /home/rihab/aslema.yml
+      command: ansible-playbook --version
