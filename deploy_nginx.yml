@@ -27,7 +27,7 @@
         wait: yes
         wait_timeout: 300
       environment:
-        KUBECONFIG: /path/to/kube-config
+        KUBECONFIG: /home/rihab/.kube/config
 
 
 
