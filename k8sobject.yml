@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  collections:
+    - kubernetes.core
+  tasks:
+    - name: Create a pod
+      k8s:
+        definition:
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: "nginx-pod-withk8score"
+            namespace: default
+          spec:
+            containers:
+              - name: nginx-container
+                image: nginx
+
