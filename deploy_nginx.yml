@@ -1,0 +1,8 @@
+---
+- name: Deploy Nginx Pod
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create Nginx Pod
+      command: kubectl run mynginx-pod-withansible --image=nginx
+
